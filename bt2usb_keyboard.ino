@@ -1,54 +1,54 @@
 #include <BluetoothHCI.h>
 #include <BluetoothHIDMaster.h>
 #include "Keyboard.h"
-#include <HID_Keyboard.h>
 
-extern const uint8_t KeyboardLayout_en_US[128];
+
+#define BT_USB_OFFSET 61
+#define KEY_ASCII_OFFET 13
+
 
 BluetoothHIDMaster hid;
-//HIDKeyStream keystream;
 
+
+uint8_t modifierMap[128] = {};
+
+void setupModifierMap() {
+  modifierMap[0xe0] = KEY_LEFT_CTRL;
+}
 
 void kb(void *cbdata, int key) {
   bool state = (bool)cbdata;
+  int mapKey = key;
+  uint8_t modifierKey = modifierMap[key];
 
-  if(key >= 0xe0 && key <= 0xe8){
-    if(state){
-      Keyboard.press(KEY_LEFT_CTRL);
-    }else{
-      Keyboard.release(KEY_LEFT_CTRL);
-    }
-  }else if(state){
-    /*keystream.write((uint8_t)key);
-    keystream.write((uint8_t)state);
-
-    char keyChar = keystream.read();
-    Keyboard.print(keyChar);
-
-    Serial.printf("Keyboard: %d %s = '%c'\n", key, state ? "DOWN" : "UP", state ? keyChar : '-');*/
-
-    int offset = key + 61;
-
-    Keyboard.press(offset);
-    delay(100);
-
-    Keyboard.release(offset);
-    delay(100);
+  if (modifierKey) {
+    mapKey = modifierKey;
+  } else {
+    mapKey = key + BT_USB_OFFSET;
   }
 
-  Serial.printf("Key: %d %s\n", key, state ? "DOWN" : "UP");
+  if (state) {
+    Keyboard.press(mapKey);
+  } else {
+    Keyboard.release(mapKey);
+  }
+
+  char keyChar = (key + KEY_ASCII_OFFET) + '0';
+
+  Serial.printf("Keyboard: %d %s = '%c'\n", key, state ? "DOWN" : "UP", state ? keyChar : ' ');
 }
 
 void setup() {
+  setupModifierMap();
+
   Serial.begin();
   delay(3000);
 
   Serial.printf("Starting HID master, put your device in pairing mode now.\n");
 
-  //keystream.begin();
-
   hid.onKeyDown(kb, (void *)true);
   hid.onKeyUp(kb, (void *)false);
+
   hid.begin(true);
   hid.connectBLE();
 
@@ -63,9 +63,20 @@ void loop() {
 
     hid.disconnect();
     hid.clearPairing();
-    
+
     Serial.printf("Restarting HID master, put your device in pairing mode now.\n");
-    
+
     hid.connectBLE();
   }
+}
+
+void setup1() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop1() {
+  digitalWrite(LED_BUILTIN, hid.connected() ? HIGH : LOW);
+
+  yield();
+  delay(1);
 }
