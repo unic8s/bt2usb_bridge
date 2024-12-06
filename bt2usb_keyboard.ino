@@ -6,7 +6,7 @@
 extern const uint8_t KeyboardLayout_en_US[128];
 
 BluetoothHIDMaster hid;
-HIDKeyStream keystream; 
+//HIDKeyStream keystream;
 
 
 void kb(void *cbdata, int key) {
@@ -18,17 +18,25 @@ void kb(void *cbdata, int key) {
     }else{
       Keyboard.release(KEY_LEFT_CTRL);
     }
-
-    Serial.printf("Modifier: %02x %s'\n", key, state ? "DOWN" : "UP");
   }else if(state){
-    keystream.write((uint8_t)key);
+    /*keystream.write((uint8_t)key);
     keystream.write((uint8_t)state);
 
     char keyChar = keystream.read();
     Keyboard.print(keyChar);
 
-    Serial.printf("Keyboard: %02x %s = '%c'\n", key, state ? "DOWN" : "UP", state ? keyChar : '-');
+    Serial.printf("Keyboard: %d %s = '%c'\n", key, state ? "DOWN" : "UP", state ? keyChar : '-');*/
+
+    int offset = key + 61;
+
+    Keyboard.press(offset);
+    delay(100);
+
+    Keyboard.release(offset);
+    delay(100);
   }
+
+  Serial.printf("Key: %d %s\n", key, state ? "DOWN" : "UP");
 }
 
 void setup() {
@@ -37,7 +45,7 @@ void setup() {
 
   Serial.printf("Starting HID master, put your device in pairing mode now.\n");
 
-  keystream.begin();
+  //keystream.begin();
 
   hid.onKeyDown(kb, (void *)true);
   hid.onKeyUp(kb, (void *)false);
