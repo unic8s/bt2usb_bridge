@@ -15,7 +15,7 @@ The firmware is already pre-built available in our release section. Just go ahea
 Please follow the described steps.
 
 ### Firmware
-1. Download the [lastest BIN file](https://github.com/unic8s/bt2usb_keyboard/releases/latest/download/bt2usb_keyboard.UF2) or your prefered [release](https://github.com/unic8s/bt2usb_keyboard/releases)
+1. Download the [lastest UF2 file](https://github.com/unic8s/bt2usb_keyboard/releases/latest/download/bt2usb_keyboard.UF2) or your prefered [release](https://github.com/unic8s/bt2usb_keyboard/releases)
 2. Press and hold the BOOT button on the [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh) while connecting it to PC via Micro USB data cable
 3. A file explorer window will open and a (virtual) drive. Copy the downloaded UF2 firwmare file into that drive.
 4. After finish copying the file just disconnect the [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh) from the PC.
