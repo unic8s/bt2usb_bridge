@@ -1,21 +1,22 @@
 #include <BluetoothHCI.h>
 #include <BluetoothHIDMaster.h>
 #include "Keyboard.h"
-#include "WiFiManager.h"
+//#include "WiFiManager.h"
 
 
 #define BT_USB_OFFSET     61
 #define KEY_ASCII_OFFET   13
 
-#define STATION_NAME      "BT2USB Keyboard"
-#define DEVICE_NAME       "HD2 Macropad"
+#define SCAN_NAME         "HD2 Macropad"
+#define DEVICE_NAME       "BT2USB Keyoard"
+//#define WIFI_PASSPHRASE   "superearth"
 
 
 BluetoothHIDMaster hid;
 BluetoothHCI hci;
 
 
-WiFiManager wm(STATION_NAME, "superearth");
+//WiFiManager captivePortal(DEVICE_NAME, WIFI_PASSPHRASE);
 
 
 uint8_t modifierMap[128] = {};
@@ -47,8 +48,6 @@ void kb(void *cbdata, int key) {
 }
 
 void setup() {
-  bool success = wm.autoConnect();
-
   pinMode(LED_BUILTIN, OUTPUT);
 
   setupModifierMap();
@@ -100,7 +99,7 @@ void connectMacropad(){
 
     String deviceName = e.name();
 
-    if(deviceName == DEVICE_NAME){
+    if(deviceName == SCAN_NAME){
       bleFound = true;
       bleRescan = false;
 
@@ -158,3 +157,12 @@ void loop() {
   yield();
   delay(1);
 }
+
+/*void setup1(){
+  bool success = captivePortal.autoConnect();
+}
+
+void loop1(){
+  yield();
+  delay(1);
+}*/
