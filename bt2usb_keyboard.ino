@@ -1,16 +1,21 @@
 #include <BluetoothHCI.h>
 #include <BluetoothHIDMaster.h>
 #include "Keyboard.h"
+#include "WiFiManager.h"
 
 
 #define BT_USB_OFFSET     61
 #define KEY_ASCII_OFFET   13
 
+#define STATION_NAME      "BT2USB Keyboard"
 #define DEVICE_NAME       "HD2 Macropad"
 
 
 BluetoothHIDMaster hid;
 BluetoothHCI hci;
+
+
+WiFiManager wm(STATION_NAME, "superearth");
 
 
 uint8_t modifierMap[128] = {};
@@ -42,6 +47,8 @@ void kb(void *cbdata, int key) {
 }
 
 void setup() {
+  bool success = wm.autoConnect();
+
   pinMode(LED_BUILTIN, OUTPUT);
 
   setupModifierMap();
