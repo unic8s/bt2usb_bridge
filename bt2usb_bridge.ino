@@ -7,7 +7,7 @@
 #define BT_USB_OFFSET     61
 #define KEY_ASCII_OFFET   13
 
-#define SCAN_NAME         "HD2 Macropad"
+#define SCAN_NAME         "HD2 Macropad BT"
 #define DEVICE_NAME       "BT2USB Keyoard"
 //#define WIFI_PASSPHRASE   "superearth"
 
