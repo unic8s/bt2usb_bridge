@@ -29,7 +29,7 @@ After successful pairing with the [HD2 Macropad](https://github.com/unic8s/hd2_m
 
 ## Software - for developers
 
-- IDE: [Arduino](https://code.visualstudio.com/](https://www.arduino.cc/en/software) + [Pi Pico Core](https://platformio.org/](https://github.com/earlephilhower/arduino-pico)
+- IDE: [Arduino](https://www.arduino.cc/en/software) + [Pi Pico Core](https://github.com/earlephilhower/arduino-pico)
 - Board: [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh)
 - Framework: Arduino
 - Libraries & functions
