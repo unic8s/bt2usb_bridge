@@ -27,6 +27,13 @@ You just have to connect the [Raspberry Pi Pico W](https://www.raspberrypi.com/d
 
 After successful pairing with the [HD2 Macropad](https://github.com/unic8s/hd2_macropad) the device LED will light up.
 
+## Support
+
+We're pleased with your feedback so far and we try to keep up with your good ideas for new features. Thanks to all of you participating on our journey.
+If you enjoy the project and want to support our private work feel free to make a small donation.
+
+[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 45px !important">](https://www.buymeacoffee.com/unic8)
+
 ## Software - for developers
 
 - IDE: [Arduino](https://www.arduino.cc/en/software) + [Pi Pico Core](https://github.com/earlephilhower/arduino-pico)
