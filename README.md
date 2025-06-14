@@ -1,3 +1,5 @@
+![Connectivity schematic](schematic.png)
+
 # HD2 Macropad - BT2USB Bridge
 
 This is the software for a Raspberry Pi Pico W to work as a Bluetooth-to-USB bridge for the [HD2 Macropad](https://github.com/unic8s/hd2_macropad).
