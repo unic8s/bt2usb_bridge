@@ -27,7 +27,13 @@ Please follow the described steps.
 In general there is no specific further configuration needed.
 You just have to connect the [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh) with a Micro USB cable to the PS5&trade;.
 
-After successful pairing with the [HD2 Macropad](https://github.com/unic8s/hd2_macropad) the device LED will light up.
+### LED indicator
+The onboard LED of the board will show the status of the Bluetooth connection.
+
+- Blinking
+  - The Pi Pico W is scanning for the [HD2 Macropad](https://github.com/unic8s/hd2_macropad)
+- Constant
+  - The Pi Pico W successfully found and connected the [HD2 Macropad](https://github.com/unic8s/hd2_macropad)
 
 ## Support
 
