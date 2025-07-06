@@ -113,6 +113,7 @@ void connectMacropad(){
 
       Serial.println("Device connected");
       
+      bleRescan = false;
       bleScanning = false;
       return;
     }
@@ -140,29 +141,45 @@ void loop() {
 
     hid.disconnect();
     hid.clearPairing();
+  }
 
+  if(!hid.connected() || bleRescan){
     delay(1000);
 
     Serial.println("Rescanning");
 
+    bleFound = false;
+
     connectMacropad();
   }
-
-  if(!hid.connected() || bleRescan){
-    connectMacropad();
-  }
-
-  digitalWrite(LED_BUILTIN, bleFound ? HIGH : LOW);
 
   yield();
   delay(1);
 }
 
-/*void setup1(){
-  bool success = captivePortal.autoConnect();
+
+unsigned long blinkTimer = 0;
+unsigned int blinkInterval = 500;
+bool blinkState = false;
+
+void setup1(){
+  //bool success = captivePortal.autoConnect();
 }
 
 void loop1(){
+  if(hid.connected()){
+    digitalWrite(LED_BUILTIN, HIGH);
+  }else{
+    unsigned long now = millis();
+
+    if(now - blinkTimer > blinkInterval){
+      blinkState = !blinkState;
+      blinkTimer = now;
+
+      digitalWrite(LED_BUILTIN, blinkState ? HIGH : LOW);
+    }
+  }
+
   yield();
   delay(1);
-}*/
+}
