@@ -8,7 +8,9 @@ You connect the Raspberry Pi Pico W via USB cable to your PS5&trade; and it auto
 > HELLDIVERS and PS5 a registered trademarks of SONY INTERACTIVE ENTERTAINMENT LLC.
 
 ## Prerequesites
-- The controller [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh)
+- Supported microcontrollers
+  - [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh)
+  - [Raspberry Pi Pico 2 W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico2w-technical-specification)
 - Micro USB data cable to communicate with a PC for flashing the firmware once.
 
 ## Installation
@@ -18,22 +20,22 @@ Please follow the described steps.
 
 ### Firmware
 1. Download the [lastest UF2 file](https://github.com/unic8s/bt2usb_bridge/releases/latest/download/bt2usb_bridge.UF2) or your prefered [release](https://github.com/unic8s/bt2usb_bridge/releases)
-2. Press and hold the BOOT button on the [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh) while connecting it to PC via Micro USB data cable
+2. Press and hold the BOOT button on the microcontroller while connecting it to PC via Micro USB data cable
 3. A file explorer window will open and a (virtual) drive. Copy the downloaded UF2 firwmare file into that drive.
-4. After finish copying the file just disconnect the [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh) from the PC.
+4. After finish copying the file just disconnect the microcontroller from the PC.
 
 ## Setup
 
 In general there is no specific further configuration needed.
-You just have to connect the [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh) with a Micro USB cable to the PS5&trade;.
+You just have to connect the microcontroller with a Micro USB cable to the PS5&trade;.
 
 ### LED indicator
 The onboard LED of the board will show the status of the Bluetooth connection.
 
 - Blinking
-  - The Pi Pico W is scanning for the [HD2 Macropad](https://github.com/unic8s/hd2_macropad)
+  - The microcontroller is scanning for the [HD2 Macropad](https://github.com/unic8s/hd2_macropad)
 - Constant
-  - The Pi Pico W successfully found and connected the [HD2 Macropad](https://github.com/unic8s/hd2_macropad)
+  - The microcontroller successfully found and connected the [HD2 Macropad](https://github.com/unic8s/hd2_macropad)
 
 ## Support
 
@@ -45,7 +47,7 @@ If you enjoy the project and want to support our private work feel free to make 
 ## Software - for developers
 
 - IDE: [Arduino](https://www.arduino.cc/en/software) + [Pi Pico Core](https://github.com/earlephilhower/arduino-pico)
-- Board: [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh)
+- Board: [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#raspberry-pi-pico-w-and-pico-wh) or [Raspberry Pi Pico 2 W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico2w-technical-specification)
 - Framework: Arduino
 - Libraries & functions
   - BluetoothHCI for Bluetooth scanning
