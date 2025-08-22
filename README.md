@@ -3,9 +3,10 @@
 # HD2 Macropad - BT2USB Bridge
 
 This is the software for a Raspberry Pi Pico W to work as a Bluetooth-to-USB bridge for the [HD2 Macropad](https://github.com/unic8s/hd2_macropad).
-You connect the Raspberry Pi Pico W via USB cable to your PS5&trade; and it automatically connects the [HD2 Macropad](https://github.com/unic8s/hd2_macropad) via Bluetooth.
+You connect the Raspberry Pi Pico W via USB cable to your Playstation&trade; or Xbox&trade; and it automatically connects the [HD2 Macropad](https://github.com/unic8s/hd2_macropad) via Bluetooth.
 
-> HELLDIVERS and PS5 a registered trademarks of SONY INTERACTIVE ENTERTAINMENT LLC.
+> HELLDIVERS and Playstation are registered trademarks of SONY INTERACTIVE ENTERTAINMENT LLC.
+> XBOX is a registered trademark of MICROSOFT COPERATION.
 
 ## Prerequesites
 - Supported microcontrollers
@@ -27,7 +28,7 @@ Please follow the described steps.
 ## Setup
 
 In general there is no specific further configuration needed.
-You just have to connect the microcontroller with a Micro USB cable to the PS5&trade;.
+You just have to connect the microcontroller with a Micro USB cable to the Playstation&trade; or Xbox&trade;.
 
 ### LED indicator
 The onboard LED of the board will show the status of the Bluetooth connection.
